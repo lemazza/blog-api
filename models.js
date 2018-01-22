@@ -50,12 +50,15 @@ const BlogPosts = {
     const {id} = updatedPost;
     const postIndex = this.posts.findIndex(
       post => post.id === updatedPost.id);
+    console.log('post index is ', postIndex);
     if (postIndex === -1) {
+      console.log("doesn't exist error", id);
       throw new StorageException(
         `Can't update item \`${id}\` because doesn't exist.`)
     }
-    this.posts[postIndex] = Object.assign(
-      this.posts[postIndex], updatedPost);
+    this.posts[postIndex] = updatedPost;
+    console.log(this.posts[postIndex]);
+    console.log('posts typeof', typeof this.posts[postIndex])
     return this.posts[postIndex];
   }
 };

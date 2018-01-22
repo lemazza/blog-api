@@ -42,6 +42,7 @@ router.post('/', jsonParser, (req, res) => {
 // of that, log error and send back status code 400. otherwise
 // call `BlogPosts.update` with updated item.
 router.put('/:id', jsonParser, (req, res) => {
+  console.log('put is running');
   const requiredFields = ['title', 'content', 'author'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -57,13 +58,15 @@ router.put('/:id', jsonParser, (req, res) => {
     return res.status(400).send(message);
   }
   console.log(`Updating blog post \`${req.params.id}\``);
-  BlogPosts.update({
+  const update =BlogPosts.update({
     id: req.params.id,
     author: req.body.author,
     title: req.body.title,
     content: req.body.content
   });
-  res.status(204).end();
+  console.log('updating with this data: ', update);
+  console.log('typeof is ', typeof update)
+  res.status(204).json(update);
 });
 
 // when DELETE request comes in with an id in path,
