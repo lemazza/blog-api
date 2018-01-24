@@ -10,6 +10,9 @@ app.use(morgan('common'));
 
 app.use('/blog-posts', blogPostRouter);
 
+app.get('/', function(req,res) {
+  res.redirect("/blog-posts");
+});
 
 
 function runServer() {
