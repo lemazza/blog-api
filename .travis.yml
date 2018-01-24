@@ -6,5 +6,5 @@ deploy:
     secure: 03cbe518-ba51-483d-8323-46cedf36c25a
   app: rocky-castle-95601
   on:
-    repo: lemazza/node-shopping-list-integration-tests
-    branch: tests-for-recipes
+    repo: lemazza/blog-api
+    branch: master
