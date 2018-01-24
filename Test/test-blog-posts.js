@@ -67,7 +67,7 @@ describe('Blog Posts', function () {
         .send(updateData)
         .then(function(res) {
           console.log("response is: ", res.body);
-          expect(res).to.have.status(204);
+          expect(res).to.have.status(201);
          
           expect(res.body).to.be.a('object');
           expect(res.body).to.deep.equal(updateData);
