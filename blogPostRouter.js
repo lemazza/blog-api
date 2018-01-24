@@ -66,7 +66,7 @@ router.put('/:id', jsonParser, (req, res) => {
   });
   console.log('updating with this data: ', update);
   console.log('typeof is ', typeof update)
-  res.status(204).json(update);
+  res.status(201).json(update);
 });
 
 // when DELETE request comes in with an id in path,
